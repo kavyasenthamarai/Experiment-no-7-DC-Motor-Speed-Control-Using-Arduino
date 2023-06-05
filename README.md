@@ -29,30 +29,29 @@ As shown in the circuit diagram we need only 3 Arduino terminal pins, pin 8 is f
 Developed by : KAVYA K
 REG NO :212222230065
 ```
-int output;
-int pin = 6;
-
+int motorValue;
+int potValue;
 void setup()
 {
-  Serial.begin(9600);
+  pinMode(9, OUTPUT);
+  pinMode(6, OUTPUT);
 }
-
 void loop()
 {
-  output = map(analogRead(A0), 0, 1023, 0, 255);
-  Serial.println(output);
-  analogWrite(pin, output);
-  delay(100);
+  potValue = analogRead (0);
+  motorValue = map(potValue, 0, 1023, 0, 255);
+  analogWrite(9, motorValue);
+  digitalWrite(6, LOW);
 }
 
 ```
 ### OUTPUT
 ## BEFORE SIMULATION:
-![image](https://github.com/kavyasenthamarai/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118668727/fe8e9b9a-1fc4-4cef-8d92-051602a7df86)
+![image](https://github.com/kavyasenthamarai/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118668727/52781559-0df2-4367-b256-443ad2d50a4b)
+
 
 ## AFTER SIMULATION:
-![image](https://github.com/kavyasenthamarai/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118668727/a4850fa9-6deb-4741-92b7-b03a5878eded)
-
+![image](https://github.com/kavyasenthamarai/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118668727/25df0f7f-761d-4857-9401-df494f5237b1)
 
 ## GRAPH
 ![image](https://github.com/kavyasenthamarai/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118668727/6fb23c80-85cc-461c-933c-77070300bf69)
